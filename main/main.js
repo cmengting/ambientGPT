@@ -78,7 +78,7 @@ ipcMain.on("sendChat", async (event, args) => {
   console.log("Received message: ", args);
   const imagePath = await captureScreen();
   const { spawn } = require("node:child_process");
-  const childPython = spawn("python3", ["test.py", args, imagePath]); // send image context as an additional argument
+  const childPython = spawn("python3", ["test_azure.py", args, imagePath]); // send image context as an additional argument
 
   childPython.stdout.on("data", (data) => {
     console.log("Received data from python: ", data.toString());
